@@ -130,7 +130,6 @@ CREATE TABLE studio (
   studio_name TEXT
 );
 
-
 CREATE TABLE role (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   role_name TEXT,
@@ -264,7 +263,6 @@ ON movie.studio_id = studio.id;
 .print "========"
 .print ""
 
-
 -- The SQL statement for the cast output
 -- TODO!
 
@@ -272,4 +270,5 @@ SELECT movie.movie_name, actor.actor_name, role.role_name
 FROM role
 INNER JOIN actor ON role.actor_id = actor.id
 INNER JOIN movie ON role.movie_id = movie.id
-ORDER BY movie.movie_name;
+ORDER BY role.movie_id ASC, role.actor_id ASC;
+
